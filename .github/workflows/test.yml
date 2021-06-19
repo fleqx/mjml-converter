@@ -21,4 +21,14 @@ jobs:
       run: npm run test
 
     - name: docker
-      run: docker build -t mjml-converter:merge .
+      run: docker build -t mjml-converter:${{ github.sha }} .
+
+    - name: trivy
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'mjml-converter:${{ github.sha }}'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'CRITICAL,HIGH'
