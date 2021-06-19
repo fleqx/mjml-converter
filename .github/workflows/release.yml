@@ -29,6 +29,9 @@ jobs:
     - name: publish docker image
       run: |
         echo ${{ secrets.GHCR_TOKEN }} | docker login ghcr.io -u $GITHUB_ACTOR --password-stdin
-        docker build -t ghcr.io/${{ github.repository }}:$version -t ghcr.io/${{ github.repository }}:latest .
+        echo ${{ secrets.DOCKER_TOKEN }} | docker login -u $DOCKER_USERNAME --password-stdin
+        docker build -t ghcr.io/${{ github.repository }}:$version -t ${{ github.repository }}:$version -t ghcr.io/${{ github.repository }}:latest -t ${{ github.repository }}:latest .
         docker push ghcr.io/${{ github.repository }}:$version
+        docker push ${{ github.repository }}:$version
         docker push ghcr.io/${{ github.repository }}:latest
+        docker push ${{ github.repository }}:latest
