@@ -22,4 +22,6 @@ EXPOSE 3000
 RUN addgroup -S app && adduser -S -G app app && chown -R app:app /app
 USER app
 
+ENV MINIFY 1
+
 CMD ["npm", "run", "start"]

@@ -1,5 +1,5 @@
-import { createServer } from './utils';
+import { createServer, shouldMinify } from './utils';
 
-const app = createServer(true);
+const app = createServer(shouldMinify());
 
 app.listen(3000);

@@ -32,3 +32,12 @@ export const createServer = (minify = true): express.Application => {
 
   return app;
 };
+
+export const shouldMinify = (): boolean => {
+  let shouldMinify = false;
+
+  if (process.env.MINIFY === '1') {
+    shouldMinify = true;
+  }
+  return shouldMinify;
+};
