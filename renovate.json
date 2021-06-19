@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "automerge": true,
+  "automergeType": "pr",
+  "extends": ["config:base", "docker:enableMajor"],
+  "rebaseWhen": "behind-base-branch",
+  "semanticCommitScope": "deps",
+  "semanticCommitType": "chore",
+  "semanticCommits": "enabled"
+}

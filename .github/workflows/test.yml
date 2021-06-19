@@ -1,0 +1,34 @@
+name: "Test Application"
+on: pull_request
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - uses: bahmutov/npm-install@v1
+
+    - name: lint
+      run: npm run lint
+
+    - name: build
+      run: npm run build
+
+    - name: test
+      run: npm run test
+
+    - name: docker
+      run: docker build -t mjml-converter:${{ github.sha }} .
+
+    - name: trivy
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'mjml-converter:${{ github.sha }}'
+        format: 'table'
+        exit-code: '1'
+        ignore-unfixed: true
+        vuln-type: 'os,library'
+        severity: 'CRITICAL,HIGH'
