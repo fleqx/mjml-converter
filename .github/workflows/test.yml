@@ -21,4 +21,4 @@ jobs:
       run: npm run test
 
     - name: docker
-      run: docker build --squash -t mjml-converter:merge .
+      run: docker build -t mjml-converter:merge .
