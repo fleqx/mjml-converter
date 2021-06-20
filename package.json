@@ -1,6 +1,6 @@
 {
   "name": "mjml-converter",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "A simple server that converts mjml to html.",
   "scripts": {
     "build": "rimraf ./build && tsc",
