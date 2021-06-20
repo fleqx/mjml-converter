@@ -10,11 +10,14 @@ RUN npm run build
 
 
 FROM node:16.3.0-alpine as deploy
+ARG version=0.0.0-docker
 
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 RUN npm ci --prod
+RUN npm version $version --no-git-tag-version
+
 COPY --from=build /app/build ./build
 
 EXPOSE 3000
