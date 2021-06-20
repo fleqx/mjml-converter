@@ -1,4 +1,3 @@
-import bodyParser from 'body-parser';
 import express from 'express';
 import mjml from 'mjml';
 import { minify as htmlMinify } from 'html-minifier';
@@ -6,16 +5,17 @@ import morgan from 'morgan';
 
 export const createServer = (minify = true): express.Application => {
   const app: express.Application = express();
-  app.use(bodyParser.json(), morgan('combined'));
+  app.use(express.json(), morgan('combined'));
 
   app.post('/v1/render', (req, res) => {
     res.type('json');
     try {
       const input = req.body.mjml;
-      let output = mjml(input, {}).html;
+      const output = mjml(input, {});
+      let hmtlOutput = output.html;
 
       if (minify) {
-        output = htmlMinify(output, {
+        hmtlOutput = htmlMinify(output.html, {
           collapseWhitespace: true,
           minifyCSS: false,
           caseSensitive: true,
@@ -23,7 +23,7 @@ export const createServer = (minify = true): express.Application => {
         });
       }
 
-      res.json({ html: output });
+      res.json({ html: hmtlOutput, errors: output.errors });
     } catch (error) {
       res.status(400);
       res.json({ message: 'there was an error rendering the mjml.' });
