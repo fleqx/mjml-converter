@@ -24,7 +24,7 @@ jobs:
       run: docker build -t mjml-converter:${{ github.sha }} --build-arg version=0.0.0-merge.0 .
 
     - name: trivy
-      uses: aquasecurity/trivy-action@v0.0.18
+      uses: aquasecurity/trivy-action@master
       with:
         image-ref: 'mjml-converter:${{ github.sha }}'
         format: 'table'
