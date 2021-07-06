@@ -23,7 +23,7 @@
     "morgan": "1.10.0"
   },
   "devDependencies": {
-    "@types/express": "4.17.12",
+    "@types/express": "4.17.13",
     "@types/html-minifier": "4.0.0",
     "@types/jest": "26.0.23",
     "@types/mjml": "4.7.0",
