@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@types/express": "4.17.13",
-    "@types/html-minifier": "4.0.0",
+    "@types/html-minifier": "4.0.1",
     "@types/jest": "26.0.23",
     "@types/mjml": "4.7.0",
     "@types/morgan": "1.9.2",
