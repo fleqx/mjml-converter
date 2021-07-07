@@ -27,7 +27,7 @@
     "@types/html-minifier": "4.0.1",
     "@types/jest": "26.0.24",
     "@types/mjml": "4.7.0",
-    "@types/morgan": "1.9.2",
+    "@types/morgan": "1.9.3",
     "@types/node": "15.12.4",
     "@types/supertest": "2.0.11",
     "@typescript-eslint/eslint-plugin": "4.28.2",
