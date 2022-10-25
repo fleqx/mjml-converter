@@ -1,4 +1,4 @@
-FROM node:18.11.0-alpine as build
+FROM node:19.0.0-alpine as build
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ COPY . .
 RUN npm run build
 
 
-FROM node:18.11.0-alpine as deploy
+FROM node:19.0.0-alpine as deploy
 ARG version=0.0.0-docker
 
 WORKDIR /app
