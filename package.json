@@ -28,7 +28,7 @@
     "@types/jest": "29.2.0",
     "@types/mjml": "4.7.0",
     "@types/morgan": "1.9.3",
-    "@types/node": "18.11.7",
+    "@types/node": "18.11.8",
     "@types/supertest": "2.0.12",
     "@typescript-eslint/eslint-plugin": "5.30.0",
     "@typescript-eslint/parser": "5.30.0",
